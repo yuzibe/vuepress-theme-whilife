@@ -1,0 +1,18 @@
+{
+  "name": "70-lines-of-vuepress-blog-theme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ulivz/40-lines-of-vuepress-blog-theme.git",
+  "author": "ULIVZ <chl814@foxmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev examples",
+    "build": "vuepress build examples"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-blog": "latest",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "vuepress": "next"
+  }
+}

@@ -1,0 +1,18 @@
+h1{
+    margin-bottom: .3rem;
+    border-bottom: 1px solid #eee;
+    color: #2e2e2e;
+    text-decoration: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    cursor: pointer;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+h1:hover{
+    color: #49b1f5;
+    text-decoration: none;
+}

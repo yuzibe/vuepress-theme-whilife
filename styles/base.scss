@@ -1,0 +1,15 @@
+.flex-row-container {
+  display: flex;
+  flex-direction: row;
+}
+.justify-space-between {
+  justify-content: space-between;
+}
+body {
+  margin: 0rem !important;
+  padding: 0rem !important;
+  background-color: #f3f6f7;
+}
+* {
+  box-sizing: border-box;
+}
