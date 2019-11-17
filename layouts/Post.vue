@@ -1,22 +1,27 @@
 <template>
-  <div id="article-concise">
-    <div class="timeline">
-      <a class="category-logo">
-        <i class="iconfont">&#xe79e;</i>
-      </a>
-      <div class="time">10月22日</div>
-      <div class="time category">默认分类</div>
-    </div>
-    <div class="concise">
-      <Content />
+  <div class="article-container">
+    <div id="article-concise">
+      <div class="timeline">
+        <a class="category-logo">
+          <i class="iconfont">&#xe79e;</i>
+        </a>
+        <div class="time">11月15日</div>
+        <div class="time category">默认分类</div>
+      </div>
+      <div class="concise">
+        <Content />
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "ArticleConcise",
+  name: "Post",
   data() {
     return {};
+  },
+  created() {
+   
   },
   methods: {}
 };
@@ -44,6 +49,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 // id
+.article-container {
+  max-width: 980px;
+  min-width: 980px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
 #article-concise {
   display: flex;
   flex-direction: row;
@@ -119,5 +130,11 @@ export default {
   background-color: #fff;
   border-left: 1px solid #dee8ef;
   border-bottom: 1px solid #dee8ef;
+}
+.concise img {
+    max-width: 99%;
+    border: 1px solid #dee8ef;
+    text-align: center;
+    margin: 10px 0;
 }
 </style>

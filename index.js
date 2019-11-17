@@ -5,11 +5,11 @@ module.exports = {
         {
           id: 'post',
           dirname: '_posts',
-          path: '/post/',
+          path: '/',
           pagination: {
             perPagePosts: 2,
           }, 
-          itemLayout: 'ArticleConcise'
+          itemLayout: 'Post'
         },
       ],
       frontmatters: [

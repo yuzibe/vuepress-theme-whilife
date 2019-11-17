@@ -1,7 +1,7 @@
 <template>    
   <header id="page-header" :class="pageHeaderClass">
     <span>
-      <a href="/">{{title}}</a>
+      <a href="/">{{$site.title}}</a>
     </span>
     <span>
       <a
@@ -21,8 +21,7 @@ export default {
       title: "demo-blog",
       menusTitleAndLink: {
         About: "about",
-        Tags: "tag",
-        Post: "post"
+        Tags: "tag"
       },
       // use it to compare up or down
       toTopDistance: 0,
@@ -80,7 +79,7 @@ export default {
   height: 3rem;
   padding: 1rem 2rem;
   background-color: transparent;
-  background: rgba(255, 255, 200, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
   transition: all 0.2s ease-in-out;
   z-index: 1;
