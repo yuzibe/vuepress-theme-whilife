@@ -18,7 +18,6 @@
 export default {
   data() {
     return {
-      title: "demo-blog",
       menusTitleAndLink: {
         About: "about",
         Tags: "tag"

@@ -1,9 +1,9 @@
 {
-  "name": "70-lines-of-vuepress-blog-theme",
+  "name": "vuepress-theme-whilife",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/ulivz/40-lines-of-vuepress-blog-theme.git",
-  "author": "ULIVZ <chl814@foxmail.com>",
+  "repository": "https://github.com/atsvvx/vuepress-theme-whilife",
+  "author": "哈缺氧 <haqueo@keybarrel.com>",
   "license": "MIT",
   "scripts": {
     "dev": "vuepress dev examples",
