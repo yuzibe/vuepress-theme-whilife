@@ -15,23 +15,18 @@
         </div>
       </div>
     </div>
-
-    <div class="pagination">
-      <router-link v-if="$pagination.hasPrev" :to="$pagination.prevLink">Prev</router-link>
-      <router-link
-        class="page-number"
-        v-for="(page,index) in $pagination._paginationPages"
-        :key="page.path"
-        :to="page.path"
-      >{{index + 1}}</router-link>
-      <router-link v-if="$pagination.hasNext" :to="$pagination.nextLink">Next</router-link>
+    <div class="post-container">
+      <div class="post-pagination">
+        <Pagination />
+      </div>
     </div>
   </div>
 </template>
 <script>
+import { Pagination } from "@vuepress/plugin-blog/lib/client/components";
 export default {
-  created() {
-    console.log(this.$pagination._paginationPages);
+  components: {
+    Pagination
   }
 };
 </script>
@@ -64,5 +59,26 @@ export default {
 .page-link:hover {
   color: #49b1f5;
   text-decoration: none;
+}
+.post-pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 1rem;
+  max-width: 1080px;
+  min-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+.post-pagination:before {
+  width: 1px;
+  position: absolute;
+  top: 0;
+  left: 50px;
+  height: 100%;
+  border-left: 2px solid #cfdbe4;
+  content: "";
+  z-index: -1;
 }
 </style>
