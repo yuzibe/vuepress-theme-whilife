@@ -10,9 +10,9 @@
     "build": "vuepress build examples"
   },
   "devDependencies": {
-    "@vuepress/plugin-blog": "latest",
+    "vuepress": "^1.2.0",
+    "@vuepress/plugin-blog": "^1.5.0",
     "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0",
-    "vuepress": "next"
+    "sass-loader": "^8.0.0"
   }
 }
