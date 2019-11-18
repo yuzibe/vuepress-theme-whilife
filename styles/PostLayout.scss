@@ -1,40 +1,8 @@
-<template>
-  <div class="article-container">
-    <div id="article-concise">
-      <div class="timeline">
-        <a class="category-logo">
-          <i class="iconfont">&#xe79e;</i>
-        </a>
-        <div class="time">11月15日</div>
-        <div class="time category">默认分类</div>
-      </div>
-      <div class="concise">
-        <Content />
-      </div>
-    </div>
-  </div>
-</template>
-<script>
-export default {
-  name: "Post",
-  data() {
-    return {};
-  },
-  created() {
-   
-  },
-  methods: {}
-};
-</script>
-<style lang="scss">
-@import "../styles/_variable.scss";
-@import "../styles/article.scss";
 // icon-font
 @font-face {
   font-family: "iconfont"; /* project id 1471012 */
   src: url("//at.alicdn.com/t/font_1471012_9lolydtmqad.eot");
-  src: url("//at.alicdn.com/t/font_1471012_9lolydtmqad.eot?#iefix")
-      format("embedded-opentype"),
+  src: url("//at.alicdn.com/t/font_1471012_9lolydtmqad.eot?#iefix") format("embedded-opentype"),
     url("//at.alicdn.com/t/font_1471012_9lolydtmqad.woff2") format("woff2"),
     url("//at.alicdn.com/t/font_1471012_9lolydtmqad.woff") format("woff"),
     url("//at.alicdn.com/t/font_1471012_9lolydtmqad.ttf") format("truetype"),
@@ -48,21 +16,21 @@ export default {
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-// id
-.article-container {
+// other
+.post-container {
   max-width: 980px;
   min-width: 980px;
   margin: 0 auto;
   padding: 0 1em;
 }
-#article-concise {
+#post {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   position: relative;
   padding-top: 1rem;
 }
-#article-concise::before {
+#post::before {
   width: 1px;
   position: absolute;
   top: 0;
@@ -100,14 +68,23 @@ export default {
   text-align: center;
   border: 1px solid #cfdbe4;
 }
-.category {
+.category-text {
+  font-size: 12px;
+  color: #6e7c86;
+  width: 60px;
+  height: 24px;
+  line-height: 24px;
+  margin: 20px auto;
+  background: #dee8ef;
+  text-align: center;
+  border: 1px solid #cfdbe4;
   border-radius: 24px;
   width: 100px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.concise {
+.content {
   position: relative;
   width: 800px;
   background-color: #fff;
@@ -115,7 +92,7 @@ export default {
   border: 1px solid #dee8ef;
   padding: 1rem 2rem;
 }
-.concise::before {
+.content::before {
   content: "";
   position: absolute;
   left: -0.6em;
@@ -126,15 +103,8 @@ export default {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  transition: background 0.1s linear;
   background-color: #fff;
   border-left: 1px solid #dee8ef;
   border-bottom: 1px solid #dee8ef;
 }
-.concise img {
-    max-width: 99%;
-    border: 1px solid #dee8ef;
-    text-align: center;
-    margin: 10px 0;
-}
-</style>
+

@@ -7,9 +7,9 @@ module.exports = {
           dirname: '_posts',
           path: '/',
           pagination: {
-            perPagePosts: 2,
-          }, 
-          itemLayout: 'Post'
+            lengthPerPage: 1,
+          },
+          itemLayout: 'PostContainer'
         },
       ],
       frontmatters: [
@@ -26,7 +26,8 @@ module.exports = {
         },
       ]
     }],
-  ], configureWebpack: (config, isServer) => {
+  ],
+  configureWebpack: (config, isServer) => {
     if (!isServer) {
       // 修改客户端的 webpack 配置\
       config = {
