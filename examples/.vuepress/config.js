@@ -9,6 +9,5 @@ module.exports = {
       permalinkSymbol: ''
     }
   },
-  theme: require.resolve('../../'),
   themeConfig: require('./theme.config'),
 }

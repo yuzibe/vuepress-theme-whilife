@@ -1,3 +1,5 @@
+const permalink = require('./examples/.vuepress/theme.config').base.itemPermalink
+
 module.exports = {
   plugins: [
     ['@vuepress/blog', {
@@ -12,7 +14,7 @@ module.exports = {
           },
           layout: 'PostsLayout',
           itemLayout: 'PostLayout',
-          itemPermalink: '/post/:slug'
+          itemPermalink: permalink
         },
       ]
     }],

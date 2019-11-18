@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="post-container">
+    <div class="post-layout">
       <div class="post-pagination">
         <Pagination />
       </div>

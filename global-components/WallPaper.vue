@@ -1,7 +1,7 @@
 <template>
   <nav id="wall-paper">
-    <div id="site-title">Key·Barrel 码桶</div>
-    <div id="site-sub-title">使用思考放出的能量点燃一盏灯</div>
+    <div id="site-title">{{$themeConfig.wallpaper.title}}</div>
+    <div id="site-sub-title">{{$themeConfig.wallpaper.subtitle}}</div>
   </nav>
 </template>
 <script>
