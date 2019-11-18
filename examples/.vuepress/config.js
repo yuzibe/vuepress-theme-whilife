@@ -1,5 +1,7 @@
+const siteConfig = require('./site.config')
+
 module.exports = {
-  title: 'Key·Barrel',
+  ...siteConfig,
   markdown: {
     anchor: {
       ermalink: true,
@@ -7,5 +9,6 @@ module.exports = {
       permalinkSymbol: ''
     }
   },
-  theme: require.resolve('../../')
+  theme: require.resolve('../../'),
+  themeConfig: require('./theme.config'),
 }

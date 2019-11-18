@@ -7,24 +7,12 @@ module.exports = {
           dirname: '_posts',
           path: '/',
           pagination: {
-            layout: 'Posts',
+            layout: 'PostsLayout',
             lengthPerPage: 2,
           },
-          layout: 'Posts',
-          itemLayout: 'PostContainer'
-        },
-      ],
-      frontmatters: [
-        {
-          id: "tag",
-          keys: ['tag', 'tags'],
-          path: '/tag/',
-          layout: 'Tag',
-          frontmatter: { title: 'Tag' },
-          itemlayout: 'Tag',
-          pagination: {
-            perPagePosts: 3
-          }
+          layout: 'PostsLayout',
+          itemLayout: 'PostLayout',
+          itemPermalink: '/post/:slug'
         },
       ]
     }],

@@ -1,6 +1,6 @@
 <template>
-  <div class="posts">
-    <div class="post-container" v-for="page in $pagination.pages" :key="page.key">
+  <div class="posts-layout">
+    <div class="post-layout" v-for="page in $pagination.pages" :key="page.key">
       <div class="post">
         <div class="timeline">
           <a class="category-logo">

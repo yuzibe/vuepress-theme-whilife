@@ -1,5 +1,5 @@
 <template>
-  <div id="layout">
+  <div id="global-layout">
     <page-header />
     <wall-paper />
     <main-layout />
@@ -11,6 +11,10 @@
 import MainLayout from "@app/components/GlobalLayout.vue";
 
 export default {
+  created() {
+    console.log(this.$themeConfig);
+    
+  },
   components: { MainLayout: MainLayout }
 };
 </script>

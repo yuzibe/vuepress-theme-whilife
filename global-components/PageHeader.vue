@@ -1,27 +1,25 @@
-<template>    
-  <header id="page-header" :class="pageHeaderClass">
-    <span>
-      <a href="/">{{$site.title}}</a>
+<template>
+  <header id="theme-header" :class="pageHeaderClass">
+    <span id="theme-header-title">
+      <a href="/">{{$themeConfig.header.title}}</a>
     </span>
-    <span>
-      <a
-        class="site-link"
-        :class="getCurrentSiteClass(val)"
-        v-for="(val,key) in menusTitleAndLink"
-        :key="val"
-        :href="'/'+val"
-      >{{key}}</a>
-    </span>
+    <ul id="theme-header-navbar">
+      <li
+        class="nav-item"
+        :class="(navItem.path === $route.path) ?{ cur: true }:{ cur: false }"
+        v-for="navItem in $themeConfig.header.navbar"
+        :key="navItem.name"
+      >
+        <router-link :to="navItem.path">{{navItem.name}}</router-link>
+      </li>
+    </ul>
   </header>
 </template>
 <script>
 export default {
   data() {
     return {
-      menusTitleAndLink: {
-        About: "about",
-        Tags: "tag"
-      },
+      menusTitleAndLink: {},
       // use it to compare up or down
       toTopDistance: 0,
       // use it to hide page-header
@@ -56,13 +54,6 @@ export default {
       } else {
         this.hide = true;
       }
-    },
-    getCurrentSiteClass(currentSiteString) {
-      const pathArray = this.$route.path.split("/");
-      if (currentSiteString === pathArray[1]) {
-        return { "current-site": true };
-      }
-      return { "current-site": false };
     }
   }
 };
@@ -71,7 +62,7 @@ export default {
 .hide {
   top: -3.25rem !important;
 }
-#page-header {
+#theme-header {
   position: fixed;
   top: -0px;
   width: 100%;
@@ -84,7 +75,7 @@ export default {
   z-index: 1;
 }
 
-.site-link {
+.nav-item {
   position: relative;
   margin-left: 0.6rem;
   padding-bottom: 0.3rem;
@@ -92,7 +83,7 @@ export default {
   font-size: 0.7rem;
   cursor: pointer;
 }
-.site-link::after {
+.nav-item:after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -103,10 +94,19 @@ export default {
   content: "";
   transition: all 0.3s ease-in-out;
 }
-.site-link:hover::after {
+.nav-item:hover:after {
   width: 100%;
 }
-.current-site::after {
+#theme-header-navbar .cur:after {
   width: 100%;
+}
+#theme-header-navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#theme-header-navbar li {
+  display: flex;
+  flex-direction: row;
 }
 </style>

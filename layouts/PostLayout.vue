@@ -1,5 +1,5 @@
 <template>
-  <div class="post-container">
+  <div class="post-layout">
     <div class="post">
       <div class="timeline">
         <a class="category-logo">
