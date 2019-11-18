@@ -8,7 +8,7 @@ module.exports = {
           path: '/',
           pagination: {
             layout: 'Posts',
-            lengthPerPage: 1,
+            lengthPerPage: 2,
           },
           layout: 'Posts',
           itemLayout: 'PostContainer'
