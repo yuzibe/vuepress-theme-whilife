@@ -23,9 +23,8 @@ export default {
   methods: {}
 };
 </script>
+
 <style lang="scss">
-@import "../styles/base.scss";
-@import "../styles/_variable.scss";
 @import "../styles/PostContainer.scss";
 </style>
 

@@ -16,6 +16,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../styles/_variable.scss";
-@import "../styles/base.scss";
+@import "../styles/base/Base.scss";
+@import "../styles/base/_Variable.scss";
 </style>

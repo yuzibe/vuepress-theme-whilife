@@ -14,7 +14,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "../styles/_variable.scss";
+@import "../styles/base/_Variable.scss";
 #wall-paper {
   display: flex;
   flex-direction: column;

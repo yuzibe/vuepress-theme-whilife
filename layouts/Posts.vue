@@ -1,23 +1,22 @@
 <template>
-  <div>
-    <div class="article-container" v-for="page in $pagination.pages" :key="page.key">
-      <div id="article-concise">
+  <div class="posts">
+    <div class="post-container" v-for="page in $pagination.pages" :key="page.key">
+      <div class="post">
         <div class="timeline">
           <a class="category-logo">
-            <i class="iconfont">&#xe79e;</i>
+            <i class="iconfont">&#xe66e;</i>
           </a>
           <div class="time">11月15日</div>
-          <div class="time category">默认分类</div>
+          <div class="category-text">默认分类</div>
         </div>
-
-        <div class="concise excerpt">
+        <div class="content">
           <router-link class="page-link" :to="page.path">{{ page.title }}</router-link>
-          <div v-html="page.excerpt" />
+          <div class="excerpt" v-html="page.excerpt" />
         </div>
       </div>
     </div>
 
-    <div id="pagination">
+    <div class="pagination">
       <router-link v-if="$pagination.hasPrev" :to="$pagination.prevLink">Prev</router-link>
       <router-link
         class="page-number"
@@ -40,8 +39,7 @@ export default {
 
 
 <style lang="scss" >
-@import "../styles/_variable.scss";
-
+@import "../styles/Posts.scss";
 </style>
 
 
@@ -49,7 +47,7 @@ export default {
 .excerpt /deep/ h1 {
   display: none;
 }
-.excerpt /deep/ .page-link {
+.page-link {
   margin-bottom: 0.3rem;
   border-bottom: 1px solid #eee;
   color: #2e2e2e;
@@ -63,7 +61,7 @@ export default {
   -ms-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-.excerpt /deep/ .page-link:hover {
+.page-link:hover {
   color: #49b1f5;
   text-decoration: none;
 }
