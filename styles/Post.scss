@@ -1,0 +1,85 @@
+@import "base/Base";
+@import "base/Post";
+@import "base/IconFont";
+
+.post-layout {
+  @include set-flex();
+  @include set-box((68rem, $match-root), $paddings: (0, 2rem, 0, 2rem));
+
+  .post {
+    @include set-flex($diraxis: space-between, $auaxis: start);
+    @include set-box(($match-root, $match-root), $paddings: (2rem, 0, 2rem, 0));
+    position: relative;
+
+    .timeline {
+      @include set-flex(column, $diraxis: start);
+      @include set-box((6.25rem, $match-root));
+      @include set-text(0.8rem, $line-height: 100%, $color: #6e7c86);
+      .category-logo {
+        @include set-flex();
+        @include set-box((3.75rem, 3.75rem));
+        @include set-text(1.875rem, $line-height: 3.75rem);
+        border-radius: 3.75rem;
+        background: #90a1ac;
+        & .logo {
+          font-size: inherit;
+          color: hsla(0, 0%, 100%, 0.9);
+        }
+      }
+
+      $height: 1.5rem;
+      .time {
+        @include set-box((3.75rem, $height), $margins: (1rem, 0rem, 0rem, 0rem));
+        line-height: $height;
+        text-align: center;
+        background: #dee8ef;
+        border: 1px solid #cfdbe4;
+      }
+
+      .category-text {
+        @include set-box((4.5rem, $height), $margins: (1rem, 0rem, 0rem, 0rem));
+        line-height: $height;
+        text-align: center;
+        background: #dee8ef;
+        border: 1px solid #cfdbe4;
+        border-radius: 2rem;
+      }
+    }
+
+    .content {
+      @include set-box((56.5rem, $match-root), $paddings: (1rem 2rem));
+      @include set-pose(relative);
+
+      background-color: #fff;
+      border: 2px solid #dee8ef;
+      border-radius: 0.5rem;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+
+      &:before {
+        @include set-box((1.5rem, 1.5rem));
+        @include set-pose(absolute, ((direction: top, position: 2rem), (direction: left, position: -0.9rem)));
+        content: "";
+        transform: rotate(45deg);
+        background-color: #fff;
+        border-left: 2px solid #dee8ef;
+        border-bottom: 2px solid #dee8ef;
+      }
+    }
+
+    &:before {
+      @include set-box((2px, $match-root));
+      @include set-pose(absolute, ((direction: top, position: 0), (direction: left, position: 3.125rem)));
+      content: "";
+      border-left: 2px solid #cfdbe4;
+      z-index: -1;
+    }
+  }
+}
+.posts-layout {
+  @include set-flex(column);
+  @include set-box(($match-root, $match-root));
+
+  & .post-layout:first-child .post {
+    padding-top: 4rem;
+  }
+}

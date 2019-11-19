@@ -1,1 +1,23 @@
-@import 'PostContainer';
+@import "base/Base";
+@import "Post";
+
+.posts-layout {
+  @include set-flex(column);
+  @include set-box(($match-root, $match-root));
+
+  & .post-layout:first-child .post {
+    padding-top: 4rem;
+  }
+
+  .post-pagination {
+    @include set-box(($match-root, $match-root), $paddings: (0, 0, 0, 1rem));
+    @include set-pose(relative);
+    &:before {
+      @include set-box((2px, $match-root));
+      @include set-pose(absolute, ((direction: top, position: 0), (direction: left, position: 3.125rem)));
+      content: "";
+      border-left: 2px solid #cfdbe4;
+      z-index: -1;
+    }
+  }
+}

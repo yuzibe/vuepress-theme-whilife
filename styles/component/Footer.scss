@@ -9,7 +9,7 @@
     )
   );
   @include set-text($line-height: 2rem, $color: #eee);
-  background: #49b1f5;
+  background: $theme-main-color;
   .footer-link {
     color: #eee;
   }

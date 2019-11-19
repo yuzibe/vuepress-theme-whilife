@@ -1,4 +1,4 @@
-@import "../base/Base.scss";
+@import "../base/Base";
 
 #theme-header {
   @include set-flex($diraxis: space-between);
@@ -30,7 +30,7 @@
           width: 0;
           @include set-pose(absolute, ((direction: bottom, position: 0), (direction: left, position: 0)));
           content: "";
-          background-color: #80c8f8;
+          background-color: $theme-main-color;
           transition: all 0.3s ease-in-out;
         }
         &:hover:after {

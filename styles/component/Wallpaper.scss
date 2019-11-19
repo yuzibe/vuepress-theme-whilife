@@ -3,7 +3,7 @@
 #wallpaper {
   @include set-flex(column);
   @include set-box(($match-root, 33rem));
-  background-color: #49b1f5;
+  background-color: $theme-main-color;
   #site-sub-title,
   #site-title {
     @include set-text(1.25rem, $line-height: 150%, $color: #eee);
