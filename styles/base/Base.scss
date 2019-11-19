@@ -1,15 +1,117 @@
-.flex-row-container {
-  display: flex;
-  flex-direction: row;
+// import var
+@import "_Variable";
+// global-style
+html {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  // list
+  list-style-type: none;
+  // a
+  text-decoration: none;
 }
-.justify-space-between {
-  justify-content: space-between;
+*,
+*::before,
+*::after {
+  @extend html;
+  margin: 0;
+  padding: 0;
 }
 body {
   margin: 0rem !important;
   padding: 0rem !important;
   background-color: #f3f6f7;
+  line-height: 1;
 }
-* {
-  box-sizing: border-box;
+// layout-base-style use mixin or extend you can refer officesite
+@mixin set-flex($direction: row, $diraxis: center, $auaxis: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $diraxis;
+  align-items: $auaxis;
+}
+// set layout margins paddings to form a flex box
+@mixin set-box(
+  $layout: (
+    $match-root,
+    $match-root
+  ),
+  $max-layout: (
+    nth($layout, 1),
+    nth($layout, 2)
+  ),
+  $min-layout: (
+    nth($layout, 1),
+    nth($layout, 2)
+  ),
+  $margins: (
+    0rem,
+    0rem,
+    0rem,
+    0rem
+  ),
+  $paddings: (
+    0rem,
+    0rem,
+    0rem,
+    0rem
+  )
+) {
+  width: nth($layout, 1);
+  height: nth($layout, 2);
+  max-width: nth($max-layout, 1);
+  max-height: nth($max-layout, 2);
+  min-width: nth($min-layout, 1);
+  min-height: nth($min-layout, 2);
+  @if length($margins) == 2 {
+    $margins: join($margins, $margins);
+  }
+  @for $index from 1 through length($margins) {
+    $direction: nth($directions, $index);
+    $margin: nth($margins, $index);
+    margin-#{$direction}: $margin;
+  }
+  @if length($paddings) == 2 {
+    $paddings: join($paddings, $paddings);
+  }
+  @for $index from 1 through length($paddings) {
+    $direction: nth($directions, $index);
+    $padding: nth($paddings, $index);
+    padding-#{$direction}: $padding;
+  }
+}
+// set position
+@mixin set-pose(
+  $type: static,
+  $position-directions: (
+    (direction: top, position: 0),
+    (direction: left, position: 0)
+  ),
+  $z: 0
+) {
+  position: $type;
+  @each $position-direction in $position-directions {
+    $axis-direction: map-get($position-direction, direction);
+    $axis-position: map-get($position-direction, position);
+    #{$axis-direction}: $axis-position;
+  }
+  z-index: $z;
+}
+// set text `<p> <span> <a> <li> ...`
+@mixin set-text(
+  $size: 1rem,
+  $weight: normal,
+  $spacing: 0,
+  $decoration: none,
+  $transform: null,
+  $line-height: 100%,
+  $color: black
+) {
+  font-family: $font-family;
+  font-size: $size;
+  font-weight: $weight;
+  word-spacing: spacing;
+  text-decoration: $decoration;
+  text-transform: $transform;
+  line-height: $line-height;
+  color: $color;
 }

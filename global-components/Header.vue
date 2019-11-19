@@ -1,26 +1,27 @@
 <template>
-  <header
-    id="theme-header"
-    class="flex-row-container justify-space-between"
-    :class="{'theme-header-hide':isHeaderHide}"
-  >
-    <span id="theme-header-title">
+  <header id="theme-header" :class="{'theme-header-hide':isHeaderHide}">
+    <span id="title">
       <router-link class="text" to="/">{{$themeConfig.header.title}}</router-link>
     </span>
-    <ul id="theme-header-navbar">
+    <ul id="navbar">
       <li
         class="nav-item"
         v-for="navInnerItem in $themeConfig.header.navbar.inner"
         :key="navInnerItem.name"
       >
-        <router-link :to="navInnerItem.path" class="inner-link" active-class="cur" exact>{{navInnerItem.name}}</router-link>
+        <router-link
+          :to="navInnerItem.path"
+          class="inner-link"
+          active-class="inner-link-active"
+          exact
+        >{{navInnerItem.name}}</router-link>
       </li>
       <li
         class="nav-item"
         v-for="navOuterItem in $themeConfig.header.navbar.outer"
         :key="navOuterItem.name"
       >
-        <a :href="navOuterItem.path">{{navOuterItem.name}}</a>
+        <a :href="navOuterItem.path" class="outer-link">{{navOuterItem.name}}</a>
       </li>
     </ul>
   </header>

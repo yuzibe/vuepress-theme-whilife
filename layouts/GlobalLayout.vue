@@ -1,25 +1,25 @@
 <template>
   <div id="global-layout">
-    <page-header />
-    <wall-paper />
-    <main-layout />
-    <page-footer />
+    <Header />
+    <Wallpaper />
+    <Main />
+    <Footer />
   </div>
 </template>
 
 <script>
-import MainLayout from "@app/components/GlobalLayout.vue";
+import Main from "@app/components/GlobalLayout.vue";
 
 export default {
   created() {
     console.log(this.$themeConfig);
-    
   },
-  components: { MainLayout: MainLayout }
+  components: {
+    Main: Main
+  }
 };
 </script>
 
 <style lang="scss">
 @import "../styles/base/Base.scss";
-@import "../styles/base/_Variable.scss";
 </style>

@@ -1,63 +1,47 @@
 @import "../base/Base.scss";
+
 #theme-header {
-  position: fixed;
-  top: -0px;
-  width: 100%;
-  height: 3rem;
-  padding: 0.5rem 2rem;
+  @include set-flex($diraxis: space-between);
+  @include set-box(($match-root, $theme-header-height), $paddings: (0.5rem, 2rem));
+  @include set-pose(fixed, $z: 1);
+  @include set-text();
   background-color: transparent;
   background: rgba(255, 255, 255, 0.8);
-  font-size: 1rem;
   transition: all 0.2s ease-in-out;
-  z-index: 1;
-  #theme-header-title {
-    display: flex;
-    align-items: center;
+  #title {
+    @include set-flex($auaxis: center);
     .text {
+      @include set-text(1.11rem, 700, $line-height: 1.11rem, $color: #3b3a3a);
       text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
-
-      font-weight: 700;
-      cursor: pointer;
-      color: #3b3a3a;
-      text-decoration: none;
     }
   }
-  #theme-header-navbar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    list-style-type: none;
-    li {
-      display: flex;
-      flex-direction: row;
-      a {
-        color: #3b3a3a;
-        text-decoration: none;
-      }
-    }
+  #navbar {
+    @include set-flex($auaxis: center);
     .nav-item {
-      position: relative;
-      margin-left: 0.6rem;
       padding-bottom: 0.3rem;
+      margin-left: 0.6rem;
+      @include set-pose(relative);
+      @include set-text(0.95rem);
       text-shadow: 0.05rem 0.05rem 0.1rem rgba(0, 0, 0, 0.3);
-      font-size: 0.8rem;
-      cursor: pointer;
-      .inner-link:after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 0.2rem;
-        background-color: #80c8f8;
-        content: "";
-        transition: all 0.3s ease-in-out;
+      .inner-link {
+        @include set-text();
+        &:after {
+          height: 0.2rem;
+          width: 0;
+          @include set-pose(absolute, ((direction: bottom, position: 0), (direction: left, position: 0)));
+          content: "";
+          background-color: #80c8f8;
+          transition: all 0.3s ease-in-out;
+        }
+        &:hover:after {
+          width: $match-root;
+        }
       }
-      .inner-link:hover:after {
-        width: 100%;
+      .outer-link {
+        @include set-text();
       }
-      .cur:after {
-        width: 100%;
+      .inner-link-active:after {
+        width: $match-root;
       }
     }
   }

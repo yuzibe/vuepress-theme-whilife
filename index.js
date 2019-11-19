@@ -1,4 +1,4 @@
-const permalink = require('./examples/.vuepress/theme.config').base.itemPermalink
+const permalink = require('./examples/.vuepress/theme.config').base.permalink
 
 module.exports = {
   plugins: [
