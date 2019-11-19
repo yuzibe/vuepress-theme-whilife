@@ -9,11 +9,11 @@ module.exports = {
           dirname: '_posts',
           path: '/',
           pagination: {
-            layout: 'PostsLayout',
+            layout: 'Posts',
             lengthPerPage: 2,
           },
-          layout: 'PostsLayout',
-          itemLayout: 'PostLayout',
+          layout: 'Posts',
+          itemLayout: 'Post',
           itemPermalink: permalink
         },
       ]

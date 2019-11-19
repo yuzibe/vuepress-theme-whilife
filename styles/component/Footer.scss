@@ -1,15 +1,16 @@
-footer {
+@import "../base/Base.scss";
+
+#theme-footer {
+  @include set-flex(column, $auaxis: center);
+  @include set-box(
+    $paddings: (
+      2rem,
+      2rem
+    )
+  );
+  @include set-text($line-height: 2rem, $color: #eee);
   background: #49b1f5;
-  padding: 2rem 1rem;
-  color: #eee;
-  text-align: center;
-  font-size: 14px;
-  line-height: 2;
-  font-family: Lato, Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC,
-    Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-footer a {
-  color: #eee;
-  text-decoration: none;
-  cursor: pointer;
+  .footer-link {
+    color: #eee;
+  }
 }
