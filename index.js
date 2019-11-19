@@ -1,6 +1,7 @@
 const permalink = require('./examples/.vuepress/theme.config').base.permalink
 
 module.exports = {
+
   plugins: [
     ['@vuepress/blog', {
       directories: [
@@ -17,7 +18,18 @@ module.exports = {
           itemPermalink: permalink
         },
       ]
-    }],
+    }], 
+    ['vuepress-plugin-container',
+      {
+        type: 'tip',
+        defaultTitle: '提示',
+      }
+    ],
+    ['vuepress-plugin-container', {
+      type: 'danger',
+      defaultTitle: '警告',
+    }
+    ],
   ],
   configureWebpack: (config, isServer) => {
     if (!isServer) {

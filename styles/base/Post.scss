@@ -2,6 +2,23 @@
 
 .post-layout {
   .content {
+    .custom-block {
+      padding: 0.1rem 1.5rem;
+      border-left-width: 0.5rem;
+      border-left-style: solid;
+      margin: 1rem 0;
+      .custom-block-title {
+        font-weight: 600;
+        margin-bottom: -.4rem;
+        line-height: 1.7;
+      }
+      &,
+      .tip {
+        background-color: #f3f5f7;
+        border-left-color: #42b983;
+      }
+    }
+
     h1,
     h2,
     h3,
