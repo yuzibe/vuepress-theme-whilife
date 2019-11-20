@@ -18,18 +18,18 @@ module.exports = {
           itemPermalink: permalink
         },
       ]
-    }], 
-    ['vuepress-plugin-container',
+    }], ['vuepress-plugin-container',
       {
         type: 'tip',
         defaultTitle: '提示',
       }
-    ],
-    ['vuepress-plugin-container', {
+    ], ['vuepress-plugin-container', {
       type: 'danger',
       defaultTitle: '警告',
     }
-    ],
+    ], ['@vuepress/search', {
+      searchMaxSuggestions: 10
+    }]
   ],
   configureWebpack: (config, isServer) => {
     if (!isServer) {

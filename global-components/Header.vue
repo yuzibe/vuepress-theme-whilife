@@ -1,8 +1,37 @@
 <template>
   <header id="theme-header" :class="{'theme-header-hide':isHeaderHide}">
+    <button class="mobile-navbar-btn" @click="mobileNavbarBtnTap">
+      <i class="iconfont logo">&#xe673;</i>
+    </button>
+    <div
+      class="mobile-navbar"
+      ref="mobileNavbar"
+      style="display:none;"
+      :class="{
+            'mobile-navbar-show': isNavbarLinksHide,
+          }"
+    >
+      <router-link
+        v-for="navInnerItem in $themeConfig.header.navbar.inner"
+        :key="navInnerItem.name"
+        :to="navInnerItem.path"
+        @click.native="mobileNavbarMenuTap"
+        class="inner-link"
+        active-class="inner-link-active"
+        exact
+      >{{navInnerItem.name}}</router-link>
+
+      <a
+        v-for="navOuterItem in $themeConfig.header.navbar.outer"
+        :key="navOuterItem.name"
+        :href="navOuterItem.path"
+        class="outer-link"
+      >{{navOuterItem.name}}</a>
+    </div>
     <span id="title">
       <router-link class="text" to="/">{{$themeConfig.header.title}}</router-link>
     </span>
+    <div id="search"><Search /></div>
     <ul id="navbar">
       <li
         class="nav-item"
@@ -27,14 +56,17 @@
   </header>
 </template>
 <script>
+import Search from "@SearchBox";
 export default {
   data() {
     return {
       toTopDistance: 0,
-      isHeaderHide: false
+      isHeaderHide: false,
+      isNavbarLinksHide: false
     };
   },
-  mounted() {
+  components: { Search },
+  async mounted() {
     window.addEventListener(
       "scroll",
       () => {
@@ -48,6 +80,28 @@ export default {
       },
       true
     );
+  },
+  methods: {
+    async mobileNavbarBtnTap() {
+      if (this.$refs.mobileNavbar.style.display == "none") {
+        this.$refs.mobileNavbar.style.display = "flex";
+        setTimeout(() => {
+          this.isNavbarLinksHide = !this.isNavbarLinksHide;
+        }, 10);
+      } else if (this.$refs.mobileNavbar.style.display == "flex") {
+        this.isNavbarLinksHide = !this.isNavbarLinksHide;
+        setTimeout(() => {
+          this.$refs.mobileNavbar.style.display = "none";
+        }, 500);
+      }
+    },
+    async mobileNavbarMenuTap() {
+      console.log(1);
+      this.isNavbarLinksHide = !this.isNavbarLinksHide;
+      setTimeout(() => {
+        this.$refs.mobileNavbar.style.display = "none";
+      }, 500);
+    }
   }
 };
 </script>

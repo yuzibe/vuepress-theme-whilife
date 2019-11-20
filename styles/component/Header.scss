@@ -15,6 +15,28 @@
       text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
     }
   }
+  #search {
+    @include set-flex($diraxis: flex-end);
+    flex-grow: 1;
+    /deep/ .search-box {
+      input {
+        cursor: pointer;
+        border: 1px solid ;
+        width: 0;
+        transition: border-color 0.2s linear, width 0.2 linear;
+        background: transparent
+          url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTc0MjQzMDUwMDkyIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjM1NzYiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTk5Ny4zNzQwNjYgMTAwNS42MTI5NzVhNjIuNTQwOTAxIDYyLjU0MDkwMSAwIDAgMS04OC40NjQxMDUgMGwtMjA5LjUxMjAxOS0yMDkuNjY4MzcxYTQzOC42MzA2MTEgNDM4LjYzMDYxMSAwIDEgMSA5MC41Mjc5NTQtODYuNDAwMjU1bDIwNy42MDQ1MjIgMjA3LjYwNDUyMWE2Mi41NDA5MDEgNjIuNTQwOTAxIDAgMCAxLTAuMTU2MzUyIDg4LjQ2NDEwNXpNNDQ1LjYwNjk2NSAxMTEuMjc4MDg3YTMyOC4zMzk3MzEgMzI4LjMzOTczMSAwIDEgMCAyMDYuMzg0OTc0IDU4My42MDA0MiA2Mi41NDA5MDEgNjIuNTQwOTAxIDAgMCAxIDEzLjc5MDI2OC0yMC44ODg2NjEgNjEuMzIxMzU0IDYxLjMyMTM1NCAwIDAgMSAyMi45ODM3ODEtMTQuMTY1NTE0QTMyNy45NjQ0ODYgMzI3Ljk2NDQ4NiAwIDAgMCA0NDUuNjA2OTY1IDExMS4yNzgwODd6IiBwLWlkPSIzNTc3IiBmaWxsPSIjNTE1MTUxIj48L3BhdGg+PC9zdmc+")
+          0.6rem 0.5rem no-repeat;
+        &:focus {
+          width: 10rem;
+          border: 1px solid darkcyan;
+        }
+      }
+      .suggestions {
+        top: 3rem;
+      }
+    }
+  }
   #navbar {
     @include set-flex($auaxis: center);
     .nav-item {
@@ -45,7 +67,51 @@
       }
     }
   }
+  .mobile-navbar-btn {
+    display: none;
+  }
 }
 .theme-header-hide {
   top: -3.25rem !important;
+}
+
+@media (max-width: 768px) {
+  #theme-header {
+    @include set-flex($diraxis: start);
+    @include set-box(($match-root, $theme-header-height), $paddings: (0.5rem, 1rem));
+    .mobile-navbar-btn {
+      @include set-flex();
+      background: transparent;
+      .logo {
+        @include set-text(1.5rem, $line-height: 2rem, $color: #3b3a3a);
+      }
+    }
+    #navbar {
+      display: none;
+    }
+  }
+  .mobile-navbar-btn {
+    @include set-box((2rem, 2rem));
+    border: none;
+  }
+  .mobile-navbar {
+    @include set-flex(column, start);
+    @include set-box((null, null), $paddings: (1rem, 1.5rem));
+    @include set-pose(absolute, $z: 0);
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.8);
+    transition: opacity 0.5s, top 0.5s;
+    .inner-link {
+      @include set-text($color: #3b3a3a);
+      @include set-box((null, null), $margins: (0.5rem, 1.5rem, 0.5rem, 1.5rem));
+    }
+    .outer-link {
+      @include set-text($color: #3b3a3a);
+      @include set-box((null, null), $margins: (0.5rem, 1.5rem, 0.5rem, 1.5rem));
+    }
+  }
+  .mobile-navbar-show {
+    top: 3rem;
+    opacity: 1;
+  }
 }

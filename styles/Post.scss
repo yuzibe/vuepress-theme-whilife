@@ -4,11 +4,20 @@
 
 .post-layout {
   @include set-flex();
-  @include set-box((68rem, $match-root), $paddings: (0, 2rem, 0, 2rem));
+  @include set-box(
+    ($match-root, $match-root),
+    (68rem, $match-root),
+    (48rem, $match-root),
+    $paddings: (0, 2rem, 0, 2rem)
+  );
 
   .post {
     @include set-flex($diraxis: space-between, $auaxis: start);
-    @include set-box(($match-root, $match-root), $paddings: (2rem, 0, 2rem, 0));
+    @include set-box(
+      ($match-root, $match-root),
+      $min-layout: ($match-root, $match-root),
+      $paddings: (2rem, 0, 2rem, 0)
+    );
     position: relative;
 
     .timeline {
@@ -47,7 +56,7 @@
     }
 
     .content {
-      @include set-box((56.5rem, $match-root), $paddings: (1rem 2rem));
+      @include set-box(($match-root, $match-root), (56.5rem, $match-root), (null, $match-root), $paddings: (1rem 2rem));
       @include set-pose(relative);
 
       background-color: #fff;
@@ -81,5 +90,44 @@
 
   & .post-layout:first-child .post {
     padding-top: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .post-layout {
+    @include set-box(($match-root, $match-root));
+    .post {
+      @include set-flex(column, $diraxis: flex-start);
+      @include set-box(($match-root, $match-root), $paddings: (0, 0, 3rem, 0));
+      .timeline {
+        @include set-flex(row, flex-start);
+        @include set-box(($match-root, $match-root), $margins: (0, 0, 1rem, 0), $paddings: (0, 0, 0, 1.25rem));
+        @include set-pose(relative);
+        z-index: -1;
+        .time {
+          @include set-box((null, null), $margins: (0, 0, 0, 1rem));
+        }
+        .category-text {
+          @include set-box((null, null), $margins: (0, 0, 0, 1rem));
+        }
+        &:before {
+          @include set-box(($match-root, 2px));
+          @include set-pose(absolute, ((direction: top, position: 1.875rem), (direction: left, position: 0)));
+          content: "";
+          border-bottom: 2px solid #cfdbe4;
+          z-index: -1;
+        }
+      }
+      .content {
+        @include set-box(($match-root, $match-root), $paddings: (1rem, 1rem));
+        border: 0;
+        border-top: 2px solid #dee8ef;
+        border-bottom: 2px solid #dee8ef;
+        border-radius: 0;
+        &:before {
+          @include set-box((0, 0));
+        }
+      }
+    }
   }
 }

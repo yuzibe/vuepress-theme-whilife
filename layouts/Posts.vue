@@ -10,7 +10,9 @@
           <div class="category-text">默认分类</div>
         </div>
         <div class="content">
-          <router-link class="page-link" :to="page.path">{{ page.title }}</router-link>
+          <h1>
+            <router-link class="page-link" :to="page.path">{{ page.title }}</router-link>
+          </h1>
           <div class="excerpt" v-html="page.excerpt" />
         </div>
       </div>
@@ -43,11 +45,10 @@ export default {
   display: none;
 }
 .page-link {
-  margin-bottom: 0.3rem;
-  border-bottom: 1px solid #eee;
-  color: #2e2e2e;
+  
+
   text-decoration: none;
-  font-size: 1.4rem;
+
   transition: all 0.2s ease-in-out;
 }
 .page-link:hover {
