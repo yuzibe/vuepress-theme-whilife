@@ -22,7 +22,7 @@ module.exports = {
     },
     wallpaper: {
         title: siteConfig.title,
-        subtitle: '我写这些只用一早晨, 却秒杀你整个人生',
+        subtitle: '基于时间线的博客主题',
         backgroudImg: ''
     },
     footer: {

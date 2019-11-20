@@ -33,7 +33,6 @@ module.exports = {
   ],
   configureWebpack: (config, isServer) => {
     if (!isServer) {
-      // 修改客户端的 webpack 配置\
       config = {
         test: /\.sass$/,
         loaders: ['style', 'css', 'sass']

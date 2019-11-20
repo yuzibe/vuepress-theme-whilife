@@ -53,11 +53,11 @@ module.exports = {
 
 ### 大屏
 
-![](https://i.loli.net/2019/11/20/cIT8C5GvjUJkSPB.png)
+![](https://i.loli.net/2019/11/20/OizN1tjfKrh8JdC.png)
 
 ### 小屏
 
-![](https://i.loli.net/2019/11/20/Sa7j2FNcYH6UIrD.png)
+
 
 ## License
 
