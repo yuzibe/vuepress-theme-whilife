@@ -3,11 +3,11 @@
     <div class="post-layout" v-for="page in $pagination.pages" :key="page.key">
       <div class="post">
         <div class="timeline">
-          <a class="category-logo">
-            <i class="iconfont logo">&#xe66e;</i>
-          </a>
-          <div class="time">11月15日</div>
-          <div class="category-text">默认分类</div>
+          <svg class="icon category-logo" aria-hidden="true">
+            <use ref="logo" :xlink:href="'#icon-'+page.frontmatter.logo" />
+          </svg>
+          <div class="time">{{page.frontmatter.time}}</div>
+          <div class="category-text">{{page.frontmatter.text}}</div>
         </div>
         <div class="content">
           <h1>
@@ -45,8 +45,6 @@ export default {
   display: none;
 }
 .page-link {
-  
-
   text-decoration: none;
 
   transition: all 0.2s ease-in-out;

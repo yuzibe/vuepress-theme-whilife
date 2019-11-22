@@ -1,5 +1,5 @@
 @import "Base";
-
+@import "~prismjs/themes/prism-tomorrow.css";
 .post-layout {
   .content {
     // markdown solt
@@ -27,11 +27,20 @@
         );
         @include set-text(1.25rem, bold);
       }
-      &,
-      .tip {
-        background-color: #f3f5f7;
-        border-left-color: #42b983;
-      }
+    }
+    .tip {
+      background-color: #f3f5f7;
+      border-left-color: #42b983;
+    }
+    .warning {
+      background-color: rgba(255, 229, 100, 0.3);
+      border-left-color: #e7c000;
+      color: #6b5900;
+    }
+    .danger {
+      background-color: #ffe6e6;
+      border-left-color: #c00;
+      color: #4d0000;
     }
     // markdown render styles
     h1,
@@ -100,7 +109,21 @@
     }
     li {
       line-height: 24px;
+      margin: 0 0 0.5rem 0;
+      position: relative;
+      &:before {
+        @include set-box((0.5rem, 0.5rem));
+        @include set-pose(absolute, ((direction: top, position: 10px), (direction: left, position: -1rem)));
+        content: "";
+        border: 0.15rem solid #49b1f5;
+        border-radius: 0.5rem;
+        background: #fff;
+      }
+      &:hover:before {
+        border-color: #ff7242;
+      }
     }
+
     p,
     ul,
     ol {
@@ -156,7 +179,7 @@
     }
     blockquote {
       border-left: 0.5em solid #eee;
-      padding: 0 0 0 2em;
+      padding: 0 0 0 1em;
       margin-left: 0;
     }
     blockquote cite {
@@ -449,7 +472,7 @@
         z-index: 1;
       }
     }
-    $langs: ("js", "yaml", "sh", "json");
+    $langs: ("js", "yaml", "sh", "json", "c", "cpp", "java", "scss", "go");
     @each $lang in $langs {
       div[class~="language-#{$lang}"] {
         &:before {

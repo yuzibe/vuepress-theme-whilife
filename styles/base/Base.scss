@@ -22,6 +22,15 @@ body {
   background-color: #f3f6f7;
   line-height: 1;
 }
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
 // layout-base-style use mixin or extend you can refer officesite
 @mixin set-flex($direction: row, $diraxis: center, $auaxis: center) {
   display: flex;

@@ -12,7 +12,7 @@ import Main from "@app/components/GlobalLayout.vue";
 
 export default {
   created() {
-    console.log(this.$themeConfig);
+    console.log(this.$page);
   },
   components: {
     Main: Main

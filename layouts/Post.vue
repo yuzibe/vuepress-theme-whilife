@@ -3,11 +3,12 @@
     <div class="post-layout">
       <div class="post">
         <div class="timeline">
-          <a class="category-logo">
-            <i class="iconfont logo">&#xe66e;</i>
-          </a>
-          <div class="time">11月15日</div>
-          <div class="category-text">默认分类</div>
+          <svg class="icon category-logo" aria-hidden="true">
+            <use ref="logo" :xlink:href="'#icon-'+$page.frontmatter.logo" />
+          </svg>
+
+          <div class="time">{{$page.frontmatter.time}}</div>
+          <div class="category-text">{{$page.frontmatter.text}}</div>
         </div>
         <div class="content">
           <Content />
@@ -21,13 +22,12 @@ export default {
   data() {
     return {};
   },
-  created() {},
+  mounted() {},
   methods: {}
 };
 </script>
 
 <style lang="scss" >
 @import "../styles/Post";
-@import '~prismjs/themes/prism-tomorrow.css'
 </style>
 

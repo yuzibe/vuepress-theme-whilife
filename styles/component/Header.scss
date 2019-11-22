@@ -21,7 +21,7 @@
     /deep/ .search-box {
       input {
         cursor: pointer;
-        border: 1px solid ;
+        border: 1px solid;
         width: 0;
         transition: border-color 0.2s linear, width 0.2 linear;
         background: transparent
@@ -70,6 +70,9 @@
   .mobile-navbar-btn {
     display: none;
   }
+  .mobile-navbar {
+    display: none;
+  }
 }
 .theme-header-hide {
   top: -3.25rem !important;
@@ -89,29 +92,29 @@
     #navbar {
       display: none;
     }
-  }
-  .mobile-navbar-btn {
-    @include set-box((2rem, 2rem));
-    border: none;
-  }
-  .mobile-navbar {
-    @include set-flex(column, start);
-    @include set-box((null, null), $paddings: (1rem, 1.5rem));
-    @include set-pose(absolute, $z: 0);
-    opacity: 0;
-    background: rgba(255, 255, 255, 0.8);
-    transition: opacity 0.5s, top 0.5s;
-    .inner-link {
-      @include set-text($color: #3b3a3a);
-      @include set-box((null, null), $margins: (0.5rem, 1.5rem, 0.5rem, 1.5rem));
+    .mobile-navbar-btn {
+      @include set-box((2rem, 2rem));
+      border: none;
     }
-    .outer-link {
-      @include set-text($color: #3b3a3a);
-      @include set-box((null, null), $margins: (0.5rem, 1.5rem, 0.5rem, 1.5rem));
+    .mobile-navbar {
+      @include set-flex(column, start);
+      @include set-box((null, null), $paddings: (1rem, 1.5rem));
+      @include set-pose(absolute, $z: 0);
+      opacity: 0;
+      background: rgba(255, 255, 255, 0.8);
+      transition: opacity 0.5s, top 0.5s;
+      .inner-link {
+        @include set-text($color: #3b3a3a);
+        @include set-box((null, null), $margins: (0.5rem, 1.5rem, 0.5rem, 1.5rem));
+      }
+      .outer-link {
+        @include set-text($color: #3b3a3a);
+        @include set-box((null, null), $margins: (0.5rem, 1.5rem, 0.5rem, 1.5rem));
+      }
     }
-  }
-  .mobile-navbar-show {
-    top: 3rem;
-    opacity: 1;
+    .mobile-navbar-show {
+      top: 3rem;
+      opacity: 1;
+    }
   }
 }

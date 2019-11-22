@@ -29,7 +29,6 @@
         @include set-box((3.75rem, 3.75rem));
         @include set-text(1.875rem, $line-height: 3.75rem);
         border-radius: 3.75rem;
-        background: #90a1ac;
         & .logo {
           font-size: inherit;
           color: hsla(0, 0%, 100%, 0.9);
